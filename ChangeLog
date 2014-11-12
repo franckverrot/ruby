@@ -1,3 +1,8 @@
+Wed Nov 12 05:57:20 2014  Franck Verrot <franck@verrot.fr>
+
+	* vm_eval.c (loop_i): make loop yield a counter to
+	  keep track of the iteration count.
+
 Wed Nov 12 00:26:37 2014  Tanaka Akira  <akr@fsij.org>
 
 	* test/ruby/test_object.rb: Specify an exception class for rescue clause.

@@ -47,6 +47,15 @@ class TestEnumerator < Test::Unit::TestCase
     }
   end
 
+  def test_loop_yield
+    max = 0
+    loop do |i|
+      max = i
+      raise StopIteration if i >= 1
+    end
+    assert_equal 1, max
+  end
+
   def test_nested_iteration
     def (o = Object.new).each
       yield :ok1

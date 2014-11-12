@@ -1007,8 +1007,8 @@ rb_yield_block(VALUE val, VALUE arg, int argc, const VALUE *argv, VALUE blockarg
 static VALUE
 loop_i(void)
 {
-    for (;;) {
-	rb_yield_0(0, 0);
+    for (long int i = 0; i <= FIXNUM_MAX; ++i) {
+        rb_yield_values(1, INT2FIX(i));
     }
     return Qnil;
 }
