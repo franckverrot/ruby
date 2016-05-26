@@ -6560,7 +6560,7 @@ parser_heredoc_identifier(struct parser_params *parser)
     }
     switch (c) {
       case '\'':
-	func |= str_squote; goto quoted;
+	func |= str_dquote; goto quoted;
       case '"':
 	func |= str_dquote; goto quoted;
       case '`':
@@ -7739,7 +7739,7 @@ parse_percent(struct parser_params *parser, const int space_seen, const enum lex
 	    return tSTRING_BEG;
 
 	  case 'q':
-	    lex_strterm = NEW_STRTERM(str_squote, term, paren);
+	    lex_strterm = NEW_STRTERM(str_dquote, term, paren);
 	    return tSTRING_BEG;
 
 	  case 'W':
@@ -8411,7 +8411,7 @@ parser_yylex(struct parser_params *parser)
 
       case '\'':
 	label = (IS_LABEL_POSSIBLE() ? str_label : 0);
-	lex_strterm = NEW_STRTERM(str_squote | label, '\'', 0);
+	lex_strterm = NEW_STRTERM(str_dquote | label, '\'', 0);
 	return tSTRING_BEG;
 
       case '?':
